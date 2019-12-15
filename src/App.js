@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import logo from "./logo.svg";
 import Cart from "./Components/MenuConteiner/Cart";
 import SearchBar from "./Components/Search";
+import SortBar from "./Components/Sort/SortBar";
 import pasta from "./images/pasta.jpg";
 import "./style/Style.css";
 
@@ -103,6 +104,8 @@ class Person extends Component {
       menuData: renderMenuData
     };
     this.searchHandler = this.searchHandler.bind(this);
+    this.shortLowHandler = this.shortLowHandler.bind(this);
+    this.sortHighHandler = this.sortHighHandler.bind(this);
   }
   // incrementAge = (increment = true) => {
   //   if (this.state.age === 0) {
@@ -132,26 +135,68 @@ class Person extends Component {
   //   }
   // }
 
-searchHandler = data =>{
-this.setState({
-  ...this.state,
-  searchData:data
-});
-console.log(this.state.menuData);
+  searchHandler = data => {
+    this.setState({
+      ...this.state,
+      searchData: data
+    });
+    console.log(this.state.menuData);
 
-const filterMenu = renderMenuData.filter(menu => menu.name.includes(data));
+    const filterMenu = renderMenuData.filter(menu => menu.name.includes(data));
+    console.log(filterMenu);
 
-this.setState({
-  ...this.state,
-  menuData:filterMenu
-});
-debugger
-}
+    this.setState({
+      ...this.state,
+      menuData: filterMenu
+    });
 
+    // debugger;
+  };
 
+  shortLowHandler = data => {
+    this.setState({
+      ...this.state,
+      shortData: data
+    });
+    const shortedLowData = this.state.menuData.sort((a, b) => {
+      return a.price - b.price;
+    });
+    console.log(shortedLowData);
+
+    this.setState({
+      ...this.state,
+      menuData: shortedLowData
+    });
+    // debugger;
+  };
+
+  sortHighHandler = data => {
+    this.setState({
+      ...this.state,
+      shortData: data
+    });
+    const shortedHighData = this.state.menuData.sort((a, b) => {
+      return b.price - a.price;
+    });
+    console.log(shortedHighData);
+
+    this.setState({
+      ...this.state,
+      menuData: shortedHighData
+    });
+    // debugger;
+  };
   render() {
     return (
       <div>
+        <SearchBar searchHandler={this.searchHandler} />
+        <SortBar
+          shortLowHandler={this.shortLowHandler}
+          sortHighHandler={this.sortHighHandler}
+        ></SortBar>
+
+        <Cart menuData={this.state.menuData}></Cart>
+
         {/* <div className="main-div">
           <button className="btn" onClick={() => this.decrementAge()}>
             -
@@ -161,8 +206,6 @@ debugger
             +
           </button>
         </div> */}
-        <SearchBar searchHandler={this.searchHandler} />
-        <Cart menuData={this.state.menuData}></Cart>
       </div>
     );
   }

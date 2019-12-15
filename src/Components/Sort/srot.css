@@ -1,0 +1,30 @@
+.sortNavigationContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background-color: darkgray;
+}
+
+.sortNavigationWrapper {
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sortWrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.sortWrapper ul {
+    height: 25px;
+  text-align: center;
+  background-color: rgb(17, 60, 61);
+  padding: 0% 10px;
+  margin: 0 5px;
+  border-radius: 15px;
+}
