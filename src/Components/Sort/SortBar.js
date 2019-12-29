@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import  "../../Components/Sort/srot.css"
+import "../../Components/Sort/srot.css";
 
 class SortBar extends Component {
   constructor(props) {
@@ -16,14 +16,14 @@ class SortBar extends Component {
   };
 
   render() {
+    const { sortLowChange, sortHighChange } = this;
     return (
       <div className="sortNavigationContainer">
         <div className="sortNavigationWrapper">
           <div className="sortWrapper">
-              <ul onClick={this.sortLowChange}> Price: Low to High </ul>
-              <ul onClick={this.sortHighChange}> Price: High to Low </ul>
-              <ul> Retting </ul>
-    
+            <ul onClick={sortLowChange}> Price: Low to High </ul>
+            <ul onClick={sortHighChange}> Price: High to Low </ul>
+            <ul> Retting </ul>
           </div>
         </div>
       </div>

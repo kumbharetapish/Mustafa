@@ -1,12 +1,9 @@
 import React from "react";
-import "../../style/cart.css";
+import "./cart.css";
 // import pizza from "../../images/pizza.jpg";
 // import pasta from "../../images/pasta.jpg";
 
-
-
-
-function Cart(props) {
+function MenuContainer(props) {
   return (
     <div className="menu-wrapper">
       {props.menuData.map(data => (
@@ -34,4 +31,4 @@ function Cart(props) {
   );
 }
 
-export default Cart;
+export default MenuContainer;
