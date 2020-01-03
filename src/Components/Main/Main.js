@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-// import logo from "./logo.svg";
-
 import SearchBar from "../../Components/Search";
 import SortBar from "../../Components/Sort/SortBar";
 import MenuContainer from "../../Containers/MenuContainer";
 import pasta from "../../images/pasta.jpg";
-// import "./style/Style.css";
 
 const renderMenuData = [
   {
@@ -101,59 +98,26 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // age: 0,
       menuData: renderMenuData
     };
     this.searchHandler = this.searchHandler.bind(this);
     this.shortLowHandler = this.shortLowHandler.bind(this);
     this.sortHighHandler = this.sortHighHandler.bind(this);
+    this.sortRettingHandler = this.sortRettingHandler.bind(this);
   }
-  // incrementAge = (increment = true) => {
-  //   if (this.state.age === 0) {
-  //     this.setState({
-  //       age: increment ? this.state.age : this.state.age + 1
-  //     });
-  //     console.log(this.state.age);
-  //   }
-  //   if (this.state.age !== 0) {
-  //     this.setState({
-  //       age: increment ? this.state.age : this.state.age + 1
-  //     });
-  //   }
-  // };
-  // incrementAge() {
-  //   if (this.state.age < 10)
-  //     this.setState({
-  //       age: this.state.age + 1
-  //     });
-  // }
-
-  // decrementAge() {
-  //   if (this.state.age > 0) {
-  //     this.setState({
-  //       age: this.state.age - 1
-  //     });
-  //   }
-  // }
 
   searchHandler = data => {
     this.setState({
       ...this.state,
       searchData: data
     });
-    console.log(this.state.menuData);
-
     const filterMenu = renderMenuData.filter(menu =>
       menu.name.toLocaleLowerCase().includes(data)
     );
-    console.log(filterMenu);
-
     this.setState({
       ...this.state,
       menuData: filterMenu
     });
-
-    // debugger;
   };
 
   shortLowHandler = data => {
@@ -164,14 +128,10 @@ class Main extends Component {
     const shortedLowData = this.state.menuData.sort((a, b) => {
       return a.price - b.price;
     });
-
-    console.log(shortedLowData);
-
     this.setState({
       ...this.state,
       menuData: shortedLowData
     });
-    // debugger;
   };
 
   sortHighHandler = data => {
@@ -182,19 +142,32 @@ class Main extends Component {
     const shortedHighData = this.state.menuData.sort((a, b) => {
       return b.price - a.price;
     });
-    console.log(shortedHighData);
+    this.setState({
+      ...this.state
+    });
+  };
+
+  sortRettingHandler = data => {
+    this.setState({
+      ...this.state,
+      shortRettingData: data
+    });
+    const shortedRettingData = this.state.menuData.sort((a, b) => {
+      return b.ratting - a.ratting;
+    });
+    console.log(shortedRettingData);
 
     this.setState({
       ...this.state
     });
-    // debugger;
   };
   render() {
     const {
       state = {},
       searchHandler,
       shortLowHandler,
-      sortHighHandler
+      sortHighHandler,
+      sortRettingHandler,
     } = this;
     const { menuData = [] } = state;
 
@@ -204,19 +177,9 @@ class Main extends Component {
         <SortBar
           shortLowHandler={shortLowHandler}
           sortHighHandler={sortHighHandler}
+          sortRettingHandler={sortRettingHandler}
         ></SortBar>
-
         <MenuContainer menuData={menuData}></MenuContainer>
-
-        {/* <div className="main-div">
-            <button className="btn" onClick={() => this.decrementAge()}>
-              -
-            </button>
-            <label className="label"> onClick : {this.state.age}</label>
-            <button className="btn" onClick={() => this.incrementAge()}>
-              +
-            </button>
-          </div> */}
       </div>
     );
   }
