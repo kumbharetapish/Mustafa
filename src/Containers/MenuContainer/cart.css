@@ -33,10 +33,19 @@ body{
   margin-right: 10px;
   cursor: pointer;
 }
+.name-price-ratting{
+  display: flex;
+  justify-content: space-between;
+}
 .bold {
   font-size: 15px;
   font-weight: bold;
   margin: 0px;
+}
+
+.rettingStar{
+  color: rgb(250, 206, 8);
+  margin-right: 5px
 }
 .item-dics {
   font-size: 12px;

@@ -9,7 +9,7 @@ const renderMenuData = [
     id: 1,
     name: "Pizza",
     price: 55,
-    ratting: 3,
+    ratting: 3.5,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl:
@@ -19,7 +19,7 @@ const renderMenuData = [
     id: 2,
     price: 100,
     name: "pasta",
-    ratting: 5,
+    ratting: 2.3,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl: pasta
@@ -28,7 +28,7 @@ const renderMenuData = [
     id: 3,
     name: "waffle",
     price: 55,
-    ratting: 3,
+    ratting: 3.2,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl:
@@ -48,7 +48,7 @@ const renderMenuData = [
     id: 5,
     name: "Pizza",
     price: 55,
-    ratting: 3,
+    ratting: 3.8,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl:
@@ -58,7 +58,7 @@ const renderMenuData = [
     id: 6,
     price: 100,
     name: "pasta",
-    ratting: 5,
+    ratting: 4.1,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl: pasta
@@ -67,7 +67,7 @@ const renderMenuData = [
     id: 7,
     name: "waffle",
     price: 55,
-    ratting: 3,
+    ratting: 4.5,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl:
@@ -77,7 +77,7 @@ const renderMenuData = [
     id: 8,
     price: 120,
     name: "egg omelet",
-    ratting: 5,
+    ratting: 4.2,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolore, quas voluptatem suscipit",
     imageUrl:
@@ -106,13 +106,13 @@ class Main extends Component {
     this.sortRettingHandler = this.sortRettingHandler.bind(this);
   }
 
-  searchHandler = data => {
+  searchHandler = searchData => {
     this.setState({
       ...this.state,
-      searchData: data
+      searchData
     });
     const filterMenu = renderMenuData.filter(menu =>
-      menu.name.toLocaleLowerCase().includes(data)
+      menu.name.toLocaleLowerCase().includes(searchData)
     );
     this.setState({
       ...this.state,
@@ -120,10 +120,10 @@ class Main extends Component {
     });
   };
 
-  shortLowHandler = data => {
+  shortLowHandler = shortLowData => {
     this.setState({
       ...this.state,
-      shortLowData: data
+      shortLowData
     });
     const shortedLowData = this.state.menuData.sort((a, b) => {
       return a.price - b.price;
@@ -134,10 +134,10 @@ class Main extends Component {
     });
   };
 
-  sortHighHandler = data => {
+  sortHighHandler = shortHighData => {
     this.setState({
       ...this.state,
-      shortHighData: data
+      shortHighData
     });
     const shortedHighData = this.state.menuData.sort((a, b) => {
       return b.price - a.price;
@@ -146,11 +146,12 @@ class Main extends Component {
       ...this.state
     });
   };
+  vf
 
-  sortRettingHandler = data => {
+  sortRettingHandler = shortRettingData => {
     this.setState({
       ...this.state,
-      shortRettingData: data
+      shortRettingData
     });
     const shortedRettingData = this.state.menuData.sort((a, b) => {
       return b.ratting - a.ratting;
@@ -167,7 +168,7 @@ class Main extends Component {
       searchHandler,
       shortLowHandler,
       sortHighHandler,
-      sortRettingHandler,
+      sortRettingHandler
     } = this;
     const { menuData = [] } = state;
 

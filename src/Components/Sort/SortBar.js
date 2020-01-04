@@ -8,15 +8,15 @@ class SortBar extends Component {
   }
 
   sortLowChange = () => {
-    this.props.shortLowHandler(this.state.shortMenu);
+    this.props.shortLowHandler(this.state.shortLowData);
   };
 
   sortHighChange = () => {
-    this.props.sortHighHandler(this.state.shortMenu);
+    this.props.sortHighHandler(this.state.shortHighData);
   };
 
   sortByRetting =()=>{
-    this.props.sortRettingHandler(this.state.shortMenu)
+    this.props.sortRettingHandler(this.state.shortRettingData)
   }
 
   render() {

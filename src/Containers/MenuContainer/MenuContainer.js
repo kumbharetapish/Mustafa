@@ -1,7 +1,5 @@
 import React from "react";
 import "./cart.css";
-// import pizza from "../../images/pizza.jpg";
-// import pasta from "../../images/pasta.jpg";
 
 function MenuContainer(props) {
   return (
@@ -15,13 +13,7 @@ function MenuContainer(props) {
                 <span className="bold">{data.name}</span>
                 <div className="bold">&#x20b9; {data.price}</div>
               </div>
-              {/* <div className="star">
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-              </div> */}
+              <div className="retting"><i className="fas fa-star rettingStar"></i>{data.ratting}</div>
             </div>
             <p className="item-dics">{data.description} </p>
           </div>
