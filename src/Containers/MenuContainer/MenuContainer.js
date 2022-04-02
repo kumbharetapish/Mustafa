@@ -1,12 +1,7 @@
 import React from "react";
-import "../../style/cart.css";
-// import pizza from "../../images/pizza.jpg";
-// import pasta from "../../images/pasta.jpg";
+import "./cart.css";
 
-
-
-
-function Cart(props) {
+function MenuContainer(props) {
   return (
     <div className="menu-wrapper">
       {props.menuData.map(data => (
@@ -18,13 +13,7 @@ function Cart(props) {
                 <span className="bold">{data.name}</span>
                 <div className="bold">&#x20b9; {data.price}</div>
               </div>
-              {/* <div className="star">
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-              </div> */}
+              <div className="retting"><i className="fas fa-star rettingStar"></i>{data.ratting}</div>
             </div>
             <p className="item-dics">{data.description} </p>
           </div>
@@ -34,4 +23,4 @@ function Cart(props) {
   );
 }
 
-export default Cart;
+export default MenuContainer;
